@@ -56,7 +56,7 @@ class _BottomNavtState extends State<BottomNav> {
               color: Colors.white,
             ),
             Icon(
-              Icons.wallet_outlined,
+              Icons.favorite_outline,
               color: Colors.white,
             ),
             Icon(

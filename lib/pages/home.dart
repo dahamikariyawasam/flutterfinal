@@ -231,92 +231,76 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget showItem() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              location = false;
-              hotel = true;
-              restaurant = false;
-            });
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10),
+Widget showItem() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      GestureDetector(
+        onTap: () {
+          setState(() {
+            location = false;
+            hotel = true;
+            restaurant = false;
+          });
+        },
+        child: Material(
+          elevation: 5.0,
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            decoration: BoxDecoration(
+              color: hotel ? Colors.black : Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: EdgeInsets.all(8),
             child: Container(
-              decoration: BoxDecoration(
-                color: hotel ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/hotel.jpg",
-                height: 40,
-                width: 40,
-                fit: BoxFit.cover,
-                color: hotel ? Colors.white : Colors.black,
+              width: 100, // Set your desired width
+              height: 40, // Set your desired height
+              alignment: Alignment.center,
+              child: Text(
+                "Hotels",
+                style: AppWidget.semiBoldTextFieldStyle().copyWith(
+                  color: hotel ? Colors.white : Colors.black,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              location = true;
-              hotel = false;
-              restaurant = false;
-            });
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10),
+      ),
+      GestureDetector(
+        onTap: () {
+          setState(() {
+            location = false;
+            hotel = false;
+            restaurant = true;
+          });
+        },
+        child: Material(
+          elevation: 5.0,
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            decoration: BoxDecoration(
+              color: restaurant ? Colors.black : Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: EdgeInsets.all(8),
             child: Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                color: location ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/location.jpg",
-                fit: BoxFit.cover,
-                color: location ? Colors.white : Colors.black,
+              width: 100, // Set your desired width
+              height: 40, // Set your desired height
+              alignment: Alignment.center,
+              child: Text(
+                "Restaurants",
+                style: AppWidget.semiBoldTextFieldStyle().copyWith(
+                  color: restaurant ? Colors.white : Colors.black,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              location = false;
-              hotel = false;
-              restaurant = true;
-            });
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10),
-            child: Container(
-              decoration: BoxDecoration(
-                color: restaurant ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/restaurant.png",
-                height: 40,
-                width: 40,
-                fit: BoxFit.cover,
-                color: restaurant ? Colors.white : Colors.black,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
+
 }
